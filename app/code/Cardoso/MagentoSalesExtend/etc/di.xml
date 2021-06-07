@@ -1,9 +1,17 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Sales\Model\Order\Pdf\Invoice">
+        <plugin name="Cardoso_MagentoSalesExtend_set_is_printed"
+                type="Cardoso\MagentoSalesExtend\Plugin\Order\Pdf\InvoicePlugin" sortOrder="10"/>
+    </type>
+    <type name="Magento\Sales\Model\Order\InvoiceRepository">
+        <plugin name="is_printed_extension_attribute"
+                type="Cardoso\MagentoSalesExtend\Plugin\Order\InvoiceRepositoryPlugin" />
+    </type>
     <virtualType name="Magento\Sales\Model\ResourceModel\Order\Invoice\Grid">
         <arguments>
             <argument name="columns" xsi:type="array">
-                <item name="is_prnted" xsi:type="string">
+                <item name="is_printed" xsi:type="string">
                     sales_invoice.is_printed
                 </item>
             </argument>
