@@ -8,7 +8,11 @@
     ],
     "config": {
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "magento/inventory-composer-installer": true,
+            "magento/magento-composer-installer": true
+        }
     },
     "require": {
         "magento/module-bundle-sample-data": "100.3.*",
